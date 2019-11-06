@@ -17,45 +17,8 @@ const { Marker } = MapView;
 
 import MapView from "react-native-maps";
 import AddParking from "./Parking/AddParking";
-
-const parkingsSpots = [
-  {
-    id: 1,
-    title: "Parking 1",
-    price: 5,
-    rating: 4.2,
-    spots: 20,
-    free: 10,
-    coordinate: {
-      latitude: 37.78735,
-      longitude: -122.4334
-    }
-  },
-  {
-    id: 2,
-    title: "Parking 2",
-    price: 7,
-    rating: 3.8,
-    spots: 25,
-    free: 20,
-    coordinate: {
-      latitude: 37.78845,
-      longitude: -122.4344
-    }
-  },
-  {
-    id: 3,
-    title: "Parking 3",
-    price: 10,
-    rating: 4.9,
-    spots: 50,
-    free: 25,
-    coordinate: {
-      latitude: 37.78615,
-      longitude: -122.4314
-    }
-  }
-];
+import { parkingsSpots } from "../data/parkingSport";
+import Header from "../components/Header";
 
 const { height, width } = Dimensions.get("screen");
 
@@ -77,23 +40,11 @@ export default class Map extends React.Component {
   }
 
   setModalVisible = visible => {
-    console.log(visible);
     this.setState({ modalVisible: visible });
   };
 
   renderHeader() {
-    return (
-      <View style={styles.header}>
-        <Text style={styles.headeText}>Car Parking Finder</Text>
-        <Ionicons
-          name="ios-add-circle-outline"
-          size={26}
-          color="#fff"
-          style={{ position: "absolute", right: 10 }}
-          onPress={() => this.setModalVisible(true)}
-        />
-      </View>
-    );
+    return <Header setModalVisible={this.setModalVisible} />;
   }
 
   renderParking(item) {
@@ -238,6 +189,7 @@ export default class Map extends React.Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
+          onRequestClose={() => this.setModalVisible(false)}
         >
           <AddParking setModalVisible={this.setModalVisible} />
         </Modal>
@@ -253,19 +205,7 @@ const styles = StyleSheet.create({
   map: {
     flex: 3
   },
-  header: {
-    flex: 0.5,
-    flexDirection: "row",
-    backgroundColor: "#D83C54",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  headeText: {
-    color: "#f1f1f1",
-    textAlign: "center",
-    fontSize: 24,
-    margin: 20
-  },
+
   parkings: {
     position: "absolute",
     right: 0,

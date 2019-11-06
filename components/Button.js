@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     paddingRight: 25,
     paddingLeft: 25,
     marginTop: 10,
-    width: 300
+    width: "100%"
   }
 });
