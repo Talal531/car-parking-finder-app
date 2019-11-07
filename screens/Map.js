@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
   map: {
     flex: 3
   },
-
   parkings: {
     position: "absolute",
     right: 0,
@@ -230,7 +229,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     width: width - 24 * 2
   },
-
   buy: {
     flex: 1.25,
     flexDirection: "row",
