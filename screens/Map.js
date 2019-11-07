@@ -49,6 +49,8 @@ export default class Map extends React.Component {
 
   renderParking(item) {
     const { hours } = this.state;
+    const totalPrice = item.price * hours[item.id];
+
     return (
       <TouchableWithoutFeedback
         key={`parking-${item.id}`}
@@ -138,9 +140,23 @@ export default class Map extends React.Component {
         snapToAlignment="center"
         style={styles.parkings}
         data={parkingsSpots}
+        extraData={this.state}
         keyExtractor={(item, index) => `${item.id}`}
         renderItem={({ item }) => this.renderParking(item)}
       />
+    );
+  }
+
+  renderModal() {
+    return (
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={this.state.modalVisible}
+        onRequestClose={() => this.setModalVisible(false)}
+      >
+        <AddParking setModalVisible={this.setModalVisible} />
+      </Modal>
     );
   }
 
@@ -185,14 +201,7 @@ export default class Map extends React.Component {
           ))}
         </MapView>
         {this.renderParkings()}
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => this.setModalVisible(false)}
-        >
-          <AddParking setModalVisible={this.setModalVisible} />
-        </Modal>
+        {this.renderModal()}
       </View>
     );
   }
