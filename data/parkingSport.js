@@ -7,8 +7,8 @@ export const parkingsSpots = [
     spots: 20,
     free: 10,
     coordinate: {
-      latitude: 37.78735,
-      longitude: -122.4334
+      latitude: 24.965116,
+      longitude: 67.065532
     }
   },
   {
@@ -19,8 +19,8 @@ export const parkingsSpots = [
     spots: 25,
     free: 20,
     coordinate: {
-      latitude: 37.78845,
-      longitude: -122.4344
+      latitude: 24.964282,
+      longitude: 67.064193
     }
   },
   {
@@ -31,8 +31,8 @@ export const parkingsSpots = [
     spots: 50,
     free: 25,
     coordinate: {
-      latitude: 37.78615,
-      longitude: -122.4314
+      latitude: 24.966761,
+      longitude: 67.059275
     }
   }
 ];
