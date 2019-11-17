@@ -3,7 +3,8 @@ const COLORS = {
   gray: "#7D818A",
   black: "#3D4448",
   white: "#FFFFFF",
-  overlay: "#C1BEC0"
+  overlay: "#C1BEC0",
+  facebookLogo: "#3b5998"
 };
 
 const SIZES = {
