@@ -305,8 +305,8 @@ export default class Map extends React.Component {
           maxZoomLevel={20}
           minZoomLevel={15}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: 24.96496,
+            longitude: 67.057933,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
           }}

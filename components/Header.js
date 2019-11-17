@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, TouchableWithoutFeedback } from "react-native";
+import { DrawerActions } from "react-navigation-drawer";
 import { Ionicons } from "@expo/vector-icons";
 
 import * as theme from "../theme";
+
+const HeaderMenuButton = () => {
+  return (
+    <TouchableWithoutFeedback>
+      <Ionicons
+        name="ios-menu"
+        size={theme.SIZES.icon * 1.5}
+        color={theme.COLORS.white}
+      />
+    </TouchableWithoutFeedback>
+  );
+};
 
 export default class Header extends Component {
   render() {
@@ -33,19 +46,12 @@ export default class Header extends Component {
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "flex-end" }}
         >
-          <TouchableWithoutFeedback>
-            <Ionicons
-              name="ios-menu"
-              size={theme.SIZES.icon * 1.5}
-              color={theme.COLORS.white}
-            />
-          </TouchableWithoutFeedback>
+          <HeaderMenuButton />
         </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   // header: {
   //   flex: 0.5,
